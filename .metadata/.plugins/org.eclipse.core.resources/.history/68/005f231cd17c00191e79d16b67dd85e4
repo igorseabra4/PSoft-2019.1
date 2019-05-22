@@ -1,0 +1,13 @@
+package lab1.backend.other;
+
+public class ServerTime {
+	private String time;
+
+	public ServerTime(String time) {
+		this.time = time;
+	}
+
+	public String getTime() {
+		return time;
+	}
+}

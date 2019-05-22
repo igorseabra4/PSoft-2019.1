@@ -1,0 +1,21 @@
+package lab1.backend.application;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import lab1.backend.other.*;
+
+@Controller
+public class RestController {
+
+    @RequestMapping("/greeting_json")
+    public Greeting greeting(@RequestParam(name="name", defaultValue="World") String name) {
+        return new Greeting(name, Common.getCumprimento());
+    }
+    
+    @RequestMapping("/time_json")
+    public ServerTime time() {
+    	return new ServerTime(Common.getServerTime());
+    }
+}

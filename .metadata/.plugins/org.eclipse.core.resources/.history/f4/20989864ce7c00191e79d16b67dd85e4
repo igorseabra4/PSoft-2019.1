@@ -1,0 +1,5 @@
+package lab1.backend.other;
+
+public class Greeting extends String {
+
+}
