@@ -8,9 +8,9 @@ import lab2.model.ProductNotFoundException;
 
 @Service
 public class ProductService {
-	private final ProductDAO productDAO;
-
-	ProductService(ProductDAO productDAO) {
+	private final ProductDAO<Product, Long> productDAO;
+	
+	ProductService(ProductDAO<Product, Long> productDAO) {
 		this.productDAO = productDAO;
 	}
 	

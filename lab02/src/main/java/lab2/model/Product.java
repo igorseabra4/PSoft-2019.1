@@ -5,9 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
-
-@Data
 @Entity
 public class Product {
 	@Id
@@ -30,5 +27,17 @@ public class Product {
 
 	public long getId() {
 		return id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public float getPrice() {
+		return price;
 	}
 }

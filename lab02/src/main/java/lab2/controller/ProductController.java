@@ -12,12 +12,12 @@ import lab2.service.ProductService;
 @RequestMapping({"/v1/products"})
 public class ProductController {
 	private ProductService productService;
-
+	
 	ProductController(ProductService productService) {
 		this.productService = productService;
 	}
 	
-    @RequestMapping("/greeting")
+	@RequestMapping("/greeting")
     public String greeting() {
         return "Hello world";
     }
@@ -39,7 +39,7 @@ public class ProductController {
 	public ResponseEntity<Product> create(@RequestBody Product product) {
 		Product newProduct = productService.create(product);
 		
-		if (newProduct == null) //500?!?!
+		if (newProduct == null)
 			throw new InternalError("Something went wrong");
 		
 		return new ResponseEntity<Product>(newProduct, HttpStatus.CREATED);

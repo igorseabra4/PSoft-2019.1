@@ -1,4 +1,4 @@
-package lab2.exception;
+package lab2.model;
 
 import java.util.Date;
 
@@ -11,5 +11,17 @@ public class CustomRestError {
 		this.date = date;
 		this.message = message;
 		this.description = description;
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+	
+	public String getMessage() {
+		return message;
+	}
+	
+	public String getDescription() {
+		return description;
 	}
 }

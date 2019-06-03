@@ -6,6 +6,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/home/igorsrs/psoft-workspace/lab02"/>
 			<item value="/home/igorsrs/psoft-workspace/initial"/>
 		</list>
 		<list key="projectNameTemplate">

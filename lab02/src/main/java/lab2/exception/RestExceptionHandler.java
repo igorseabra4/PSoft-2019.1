@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
+import lab2.model.CustomRestError;
 import lab2.model.ProductNotFoundException;
 
 @ControllerAdvice
