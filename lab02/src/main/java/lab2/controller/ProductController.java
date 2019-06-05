@@ -1,11 +1,13 @@
 package lab2.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import lab2.exception.ProductNotFoundException;
 import lab2.model.Product;
-import lab2.model.ProductNotFoundException;
 import lab2.service.ProductService;
 
 @RestController
@@ -22,6 +24,11 @@ public class ProductController {
         return "Hello world";
     }
 	
+	@RequestMapping("/private/greeting")
+    public String privateGreeting() {
+        return "Hello world! Private";
+    }
+	
 	@GetMapping(value = "/{id}")
 	@ResponseBody
 	public ResponseEntity<Product> findById(@PathVariable long id) throws ProductNotFoundException {
@@ -34,7 +41,15 @@ public class ProductController {
 		return new ResponseEntity<Product>(product, HttpStatus.OK);
 	}
 	
-	@PostMapping(value = "/")
+	@GetMapping(value = "/")
+	@ResponseBody
+	public ResponseEntity<List<Product>> findAll()  {
+		List<Product> products = productService.findAll();
+				
+		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
+	}
+	
+	@PostMapping(value = "/private/")
 	@ResponseBody
 	public ResponseEntity<Product> create(@RequestBody Product product) {
 		Product newProduct = productService.create(product);
@@ -45,7 +60,7 @@ public class ProductController {
 		return new ResponseEntity<Product>(newProduct, HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping(value = "/{id}")
+	@DeleteMapping(value = "/private/{id}")
 	public ResponseEntity delete(@PathVariable long id) {
 		try {
 			productService.delete(id);
@@ -55,7 +70,7 @@ public class ProductController {
 		}
 	}
 	
-	@PutMapping(value = "/")
+	@PutMapping(value = "/private/")
 	public ResponseEntity<Product> update(@RequestBody Product product) {
 		try {
 			Product updated = productService.update(product);

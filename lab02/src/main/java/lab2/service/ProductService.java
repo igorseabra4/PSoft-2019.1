@@ -1,10 +1,12 @@
 package lab2.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lab2.dao.ProductDAO;
+import lab2.exception.ProductNotFoundException;
 import lab2.model.Product;
-import lab2.model.ProductNotFoundException;
 
 @Service
 public class ProductService {
@@ -32,5 +34,9 @@ public class ProductService {
 
 	public Product findById(long id) {
 		return productDAO.findById(id);
+	}
+
+	public List<Product> findAll() {
+		return productDAO.findAll();
 	}
 }
